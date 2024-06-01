@@ -4,9 +4,11 @@ import GameBoard from './GameBoard';
 import { SocketIO } from 'boardgame.io/multiplayer'
 
 
-const Game = Client({ game: TicTacToe,
+const Game = Client({ 
+    game: TicTacToe,
     board: GameBoard,
-    multiplayer: SocketIO({ server: 'localhost:5173' })
+    // multiplayer: Local()
+    multiplayer: SocketIO({ server: 'localhost:8000' })
  });
 
 
