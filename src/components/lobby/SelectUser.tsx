@@ -15,11 +15,12 @@ const SelectUser: React.FC<Props> = ({ setPlayerID }) => {
             setPlayerID("0");
         }
     };
+    
 
     return (
         <form onSubmit={handleSubmit}>
             <input ref={inputRef} type="text" />
-            <input type="submit" value="Submit" />
+            <button type="submit"> Launch Game with id : {inputRef.current?.value??""}</button>
         </form>
     );
 };

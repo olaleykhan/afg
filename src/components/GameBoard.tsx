@@ -8,18 +8,27 @@ interface MyGameProps extends BoardProps<MyGameState> {
   }
 
 
-const GameBoard = ({ctx,G,moves}:MyGameProps) => {
+const GameBoard:React.FC<MyGameProps> = (props) => {
+
+  const {ctx,G,moves} = props;
 
     const onClick = (id:number) => moves.play(id);
+
+    console.log("This really be where we can do and undo")
 
     let winner = <></>;
     if (ctx.gameover) {
       winner =
         ctx.gameover.winner !== undefined ? (
-          <div id="winner">Winner: {ctx.gameover.winner}</div>
+          <div id="winner">Game Winner is : {ctx.gameover.winner}</div>
         ) : (
-          <div id="winner">Draw!</div>
+          <div id="winner"> Game ended in a Draw!</div>
         );
+    }
+    function handleGetInfo(){
+      console.log("GAME STATE : ", G)
+      console.log("Context STATE : ", ctx)
+      console.log("Game Props : ", props)
     }
 
 
@@ -59,6 +68,12 @@ const GameBoard = ({ctx,G,moves}:MyGameProps) => {
         <tbody>{tbody}</tbody>
       </table>
       {winner}
+
+      <div>
+        here we do and undo;
+
+        <button onClick={handleGetInfo}> get info</button>
+      </div>
     </div>
   );
 }

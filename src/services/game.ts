@@ -31,7 +31,7 @@ export function IsDraw(cells: Array<string | null>) {
 
 
 const TicTacToe: Game<MyGameState>  = {
-    setup: () => ({ cells: Array(9).fill(null) }),
+    setup: () => ({ cells: Array(9).fill(null) }), 
     moves:{
         play
     },
