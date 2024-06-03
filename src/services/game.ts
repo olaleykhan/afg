@@ -1,5 +1,6 @@
 import { play } from "../utils/game";
 import type {Game, Move} from "boardgame.io";
+import { TurnOrder } from 'boardgame.io/core';
 
 export interface MyGameState {
     cells: Array<string | null>
@@ -37,7 +38,8 @@ const TicTacToe: Game<MyGameState>  = {
     },
     turn:{
         minMoves: 1,
-        maxMoves: 1
+      maxMoves: 1,
+      order: TurnOrder.DEFAULT,
     },
 
     endIf: ({ G, ctx }) => {

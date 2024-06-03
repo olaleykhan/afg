@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import type { BoardProps } from 'boardgame.io/react';
 import type { MyGameState } from '../services/game';
 
@@ -10,11 +10,18 @@ interface MyGameProps extends BoardProps<MyGameState> {
 
 const GameBoard:React.FC<MyGameProps> = (props) => {
 
+  useEffect(()=>{
+    console.log("GAME component mounting, do all your initializations here !!!")
+    // this will be asynce, and here we will set play order by however, that very likely has to be done 
+    // on the backend. we will know soon, set on front after updating from back? or set from back?
+    // here, we know our board rendering logic changes......perhaps, we should try to change it all along.....
+    
+  }, [])
+
   const {ctx,G,moves} = props;
 
     const onClick = (id:number) => moves.play(id);
 
-    console.log("This really be where we can do and undo")
 
     let winner = <></>;
     if (ctx.gameover) {

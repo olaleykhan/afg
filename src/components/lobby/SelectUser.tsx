@@ -16,7 +16,6 @@ const SelectUser: React.FC<Props> = ({ setPlayerID }) => {
         }
     };
     
-
     return (
         <form onSubmit={handleSubmit}>
             <input ref={inputRef} type="text" />
