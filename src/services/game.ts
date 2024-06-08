@@ -1,56 +1,49 @@
-import { play } from "../utils/game";
-import type {Game, Move} from "boardgame.io";
-import { TurnOrder } from 'boardgame.io/core';
+// Game.ts
+import type { Game, Move } from "boardgame.io";
+import { INVALID_MOVE } from 'boardgame.io/core';
 
-export interface MyGameState {
-    cells: Array<string | null>
+
+export interface GameState{
+  cells: Array<string | null>;
+
 }
 
-export interface MyMoves {
-    play: Move<MyGameState>;
-    // Add other move methods here if needed
-}
+const setup = (): GameState => ({
+  cells: Array(9).fill(null),
+});
 
-export function IsVictory(cells: Array<string | null>) {
-    const positions = [
-      [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
-      [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
-    ];
-  
-    const isRowComplete = (row:number[] ) => {
-      const symbols = row.map(i => cells[i]);
-      return symbols.every(i => i !== null && i === symbols[0]);
-    };
-  
-    return positions.map(isRowComplete).some(i => i === true);
+const drawInCell: Move<GameState> = ({ G, ctx, playerID }, id) => {
+  console.log("G : ", G);
+  console.log("Player ID : ", playerID);
+  console.log("id : ", id);
+  console.log("CTX : ", ctx);
+
+  if (G.cells[id] !== null) {
+    return INVALID_MOVE;
   }
-  
-  // Return true if all `cells` are occupied.
-export function IsDraw(cells: Array<string | null>) {
-    return cells.filter(c => c === null).length === 0;
+  G.cells[id] = playerID;
+};
+
+
+
+  // **********************************
+  // aCTUAL Game object being created here:
+  // **********************************
+
+
+  const ticTacToe:Game<GameState> ={
+    // setup is a function that sets up the game, it sets up the initial value of the state G.
+    setup,
+    // moves basically are used to update G. 
+    // but, I guess it has to be in accordance to set rules. rules we have/ will set up in (   .........   );
+    // within this object, we have individual moves. each move is a function that updates the state G to a desired new state and 
+    // always receives an object containing various fields. including G & CTX. perhaps we should log the opject to see what it really containes 
+
+
+    moves: {
+      drawInCell
+    }
+
   }
 
-
-const TicTacToe: Game<MyGameState>  = {
-    setup: () => ({ cells: Array(9).fill(null) }), 
-    moves:{
-        play
-    },
-    turn:{
-        minMoves: 1,
-      maxMoves: 1,
-      order: TurnOrder.DEFAULT,
-    },
-
-    endIf: ({ G, ctx }) => {
-        if (IsVictory(G.cells)) {
-          return { winner: ctx.currentPlayer };
-        }
-        if (IsDraw(G.cells)) {
-          return { draw: true };
-        }
-      },
-}
-
-
-export default TicTacToe;
+  export default ticTacToe;

@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import type { BoardProps } from 'boardgame.io/react';
-import type { MyGameState } from '../services/game';
+import type { GameState } from '../services/game';
 
 
-interface MyGameProps extends BoardProps<MyGameState> {
+interface MyGameProps extends BoardProps<GameState> {
     // Additional custom properties for your component
   }
 
@@ -20,7 +20,7 @@ const GameBoard:React.FC<MyGameProps> = (props) => {
 
   const {ctx,G,moves} = props;
 
-    const onClick = (id:number) => moves.play(id);
+    const onClick = (id:number) => moves.drawInCell(id);
 
 
     let winner = <></>;
