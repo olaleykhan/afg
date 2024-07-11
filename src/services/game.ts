@@ -8,8 +8,10 @@ export interface GameState{
 
 }
 
+type Cells = Array<string | null>;
+
 const setup = (): GameState => ({
-  cells: Array(9).fill(null),
+  cells:  Array(9).fill(null),
 });
 
 const drawInCell: Move<GameState> = ({ G, ctx, playerID }, id) => {
@@ -23,6 +25,26 @@ const drawInCell: Move<GameState> = ({ G, ctx, playerID }, id) => {
   }
   G.cells[id] = playerID;
 };
+
+// Return true if `cells` is in a winning configuration.
+function IsVictory(cells:Cells) {
+  const positions = [
+    [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6],
+    [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]
+  ];
+
+  const isRowComplete = (row:number[]): boolean => {
+    const symbols = row.map(i => cells[i]);
+    return symbols.every(i => i !== null && i === symbols[0]);
+  };
+
+  return positions.map(isRowComplete).some(i => i === true);
+}
+
+// Return true if all `cells` are occupied.
+function IsDraw(cells:Cells) {
+  return cells.filter(c => c === null).length === 0;
+}
 
 
 
@@ -42,7 +64,21 @@ const drawInCell: Move<GameState> = ({ G, ctx, playerID }, id) => {
 
     moves: {
       drawInCell
-    }
+    },
+
+    turn: {
+      minMoves: 1,
+      maxMoves: 1,
+    },
+
+    endIf: ({ G, ctx }) => {
+      if (IsVictory(G.cells)) {
+        return { winner: ctx.currentPlayer };
+      }
+      if (IsDraw(G.cells)) {
+        return { draw: true };
+      }
+    },
 
   }
 

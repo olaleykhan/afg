@@ -1,10 +1,8 @@
-// src/server.js
-
-import  { Server, Origins } from 'boardgame.io/server'
-import TicTacToe from '../src/services/game.ts'
+import { Server, Origins } from 'boardgame.io/server';
+import ticTacToe from '../src/services/game';
 
 const server = Server({
-  games: [TicTacToe],
+  games: [ticTacToe],
   origins: [Origins.LOCALHOST],
 });
 

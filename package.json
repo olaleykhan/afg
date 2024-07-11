@@ -8,10 +8,10 @@
     "dev": "vite",
     "watch-ts": "tsc -w -p tsconfigServer.json",
     "start": "nodemon dist/server.js",
-    "serve": "concurrently \"npm run watch-ts\" \"npm run start\"",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "serve": "nodemon src/server.js"
   },
   "dependencies": {
     "boardgame.io": "^0.50.2",
@@ -32,7 +32,8 @@
     "nodemon": "^3.1.2",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
     "vite": "^5.2.0"
   }
 }
