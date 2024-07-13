@@ -1,0 +1,19 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "server for tic tac toe multiplayer",
+  "main": "server.ts",
+  "scripts": {
+    "dev": "tsx watch server.ts",
+    "server": "tsc --noEmit && tsx server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boardgame.io": "^0.50.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  }
+}

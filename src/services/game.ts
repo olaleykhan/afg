@@ -54,6 +54,7 @@ function IsDraw(cells:Cells) {
 
 
   const ticTacToe:Game<GameState> ={
+    name: "TIC-TAC-TOE-made-by-Alaf",
     // setup is a function that sets up the game, it sets up the initial value of the state G.
     setup,
     // moves basically are used to update G. 
