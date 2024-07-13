@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import type { BoardProps } from 'boardgame.io/react';
-import type { GameState } from '../services/game';
+import { defaultCells, type GameState } from '../services/game';
 
 
 interface MyGameProps extends BoardProps<GameState> {
@@ -19,9 +19,12 @@ const GameBoard:React.FC<MyGameProps> = (props) => {
   }, [])
 
   const {ctx,G,moves} = props;
+    const onClick = (id:number) => {
+      moves.drawInCell(id)
+      // moves
+    };
 
-    const onClick = (id:number) => moves.drawInCell(id);
-
+    console.log("I run inefficiantly all the time")
 
     let winner = <></>;
     if (ctx.gameover) {
@@ -36,6 +39,11 @@ const GameBoard:React.FC<MyGameProps> = (props) => {
       console.log("GAME STATE : ", G)
       console.log("Context STATE : ", ctx)
       console.log("Game Props : ", props)
+    }
+
+    function handleReset(){
+      console.log("resetting game!!!")
+      moves.restartGame()
     }
 
 
@@ -80,6 +88,9 @@ const GameBoard:React.FC<MyGameProps> = (props) => {
         here we do and undo;
 
         <button onClick={handleGetInfo}> get info</button>
+        <div>
+          <button onClick={handleReset} className='py-1 px-3 bg-green-400' > Reset Game</button>
+        </div>
       </div>
     </div>
   );

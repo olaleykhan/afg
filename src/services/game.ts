@@ -1,6 +1,6 @@
 // Game.ts
 import type { Game, Move } from "boardgame.io";
-import { INVALID_MOVE } from 'boardgame.io/core';
+import { INVALID_MOVE, TurnOrder } from 'boardgame.io/core';
 
 
 export interface GameState{
@@ -9,22 +9,40 @@ export interface GameState{
 }
 
 type Cells = Array<string | null>;
+export const defaultCells:Cells = Array(9).fill(null)
 
 const setup = (): GameState => ({
-  cells:  Array(9).fill(null),
+  cells:  defaultCells,
 });
 
-const drawInCell: Move<GameState> = ({ G, ctx, playerID }, id) => {
-  console.log("G : ", G);
-  console.log("Player ID : ", playerID);
-  console.log("id : ", id);
-  console.log("CTX : ", ctx);
+const drawInCell: Move<GameState> = ({ G, playerID, events }, id) => {
+  // console.log("G : ", G);
+  // console.log("Player ID : ", playerID);
+  // console.log("id : ", id);
+  // console.log("CTX : ", ctx);
 
-  if (G.cells[id] !== null) {
+  if (G.cells[Number(id)] !== null) {
     return INVALID_MOVE;
   }
-  G.cells[id] = playerID;
+  G.cells[Number(id)] = playerID;
+  events.endTurn()
 };
+
+const restartGame : Move<GameState> = ({G, ctx, playerID, events, random, ...rest})=>{
+
+  console.log("resettig game internally")
+
+  console.log("G", G)
+  console.log("CTX", ctx)
+  console.log(playerID, "Player ID")
+  console.log(events, "events")
+  console.log("RANDOM", random)
+  console.log("the rest", rest)
+
+  G.cells = [...defaultCells]
+
+
+}
 
 // Return true if `cells` is in a winning configuration.
 function IsVictory(cells:Cells) {
@@ -64,12 +82,13 @@ function IsDraw(cells:Cells) {
 
 
     moves: {
-      drawInCell
+      drawInCell,
+      restartGame,
     },
 
     turn: {
       minMoves: 1,
-      maxMoves: 1,
+      order: TurnOrder.ONCE,
     },
 
     endIf: ({ G, ctx }) => {
@@ -80,6 +99,10 @@ function IsDraw(cells:Cells) {
         return { draw: true };
       }
     },
+    // on end, make function calls when game ends maybe to the backend to record a win and a lose to a particular player's ID
+    // onEnd: () => {
+    //   alert("congratulations")
+    // },
 
   }
 

@@ -7,7 +7,7 @@ function App() {
   console.log(playerID, " : player id");
 
   return playerID ? (
-    <Game playerID={playerID} matchID="alaf-guy" />
+    <Game playerID={playerID} />
   ) : (
     <SelectUser setPlayerID={setPlayerID} />
   );
