@@ -5,7 +5,9 @@
   "main": "server.ts",
   "scripts": {
     "dev": "tsx watch server.ts",
-    "server": "tsc --noEmit && tsx server.ts"
+    "server": "tsc --noEmit && tsx server.ts",
+    "build": "tsc",
+  "start" : "node ../server-dist/server/server.js"
   },
   "author": "",
   "license": "ISC",
