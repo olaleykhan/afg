@@ -1,0 +1,6 @@
+This is the very first version. made a JOke about this. 
+it is in a state of calling your friend to tell them what game number you are in so that you both can be playing the same game. lmau. 
+and of course you have to know the only 2 valid player IDs. any player ID will log you into the game but, invalid player IDs only allow you to spectate.
+this is a fun version that I would like to keep. as bare bone as it is. extra features can be added but the ID above will be retained. I can decide to start getting the passcode from 
+an ENV or a DB, encrypted with keys from ENV to ensure the IDs are changeable by me. can also set match ID to time and minute and make it accessible from a recent list. posibility s 
+endless. Idea is the same.###

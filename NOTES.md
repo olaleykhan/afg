@@ -11,4 +11,4 @@ Now, to use the boargame library, we need to know about 6 concepts.
 5. Turn: A turn is a period of the game that is associated with an individual player. it consists of 1 or more moves a player can make before the turn passess to another player. 
 6. Stage: A stage is similar to a phase, but it happenes within a player's turn. during a turn, different players can be in different stages.a turn can change the configuration of the game, I.E, currently playing pick 2 or general market. 
 
-## 1. The game upject
+## 1. The game Object
