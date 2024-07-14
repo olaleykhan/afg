@@ -1,10 +1,11 @@
-import NxWelcome from './nx-welcome';
 
 export function App() {
   return (
+   <main>
     <div>
-      <NxWelcome title="ttt-client" />
+      <h1> Tic-Tac-Toe App</h1>
     </div>
+   </main>
   );
 }
 
