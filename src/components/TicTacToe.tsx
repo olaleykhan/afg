@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState} from 'react';
 import { Client } from 'boardgame.io/react';
 import ticTacToe from '../services/game';
 import GameBoard from './GameBoard';
