@@ -29,20 +29,11 @@ const drawInCell: Move<GameState> = ({ G, playerID, events }, id) => {
   return
 };
 
-const restartGame : Move<GameState> = ({G, ctx, playerID, events, random, ...rest})=>{
+const restartGame : Move<GameState> = ({G})=>{
 
   console.log("resettig game internally")
 
-  console.log("G", G)
-  console.log("CTX", ctx)
-  console.log(playerID, "Player ID")
-  console.log(events, "events")
-  console.log("RANDOM", random)
-  console.log("the rest", rest)
-
   G.cells = [...defaultCells]
-
-
 }
 
 // Return true if `cells` is in a winning configuration.

@@ -10,8 +10,6 @@ const SelectUser: React.FC<Props> = ({ setPlayerID }) => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (inputRef.current) {
-
-            console.log(inputRef.current.value, " : inputRef.current.value");
             setPlayerID(inputRef.current.value);
         } else {
             setPlayerID("0");
