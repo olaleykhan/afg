@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "install:app": "pnpx install",
+    "install:app": "pnpx pnpm install",
     "build:ttt": "nx build ttt-client",
     "serve:ttt": "pnpx http-server dist/apps/ttt-client",
     "dev:ttt": "nx serve ttt-client",
