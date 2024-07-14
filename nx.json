@@ -41,7 +41,8 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      }
+      },
+      "exclude": ["server/ttt-e2e/**/*"]
     }
   ],
   "generators": {
@@ -64,6 +65,11 @@
   "nxCloudAccessToken": "ZGE0MWVlYmEtMzkzZS00YjBiLWIxYTktZWM1Y2E1MWU5YmJlfHJlYWQtd3JpdGU=",
   "targetDefaults": {
     "@nx/vite:build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@nx/esbuild:esbuild": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
