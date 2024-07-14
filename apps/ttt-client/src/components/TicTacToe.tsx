@@ -8,7 +8,7 @@ interface Props {
   playerID: string;
 }
 
-const BASE_URL = process.env.BASE_URL|| "https://nebulon-server-d20da13bc7f9.herokuapp.com/"
+const BASE_URL = process.env.BASE_URL|| import.meta.env.BASE_URL2 || "https://nebulon-server-d20da13bc7f9.herokuapp.com/"
 
 const TicTacToe = Client({ 
     game: tttCore,
