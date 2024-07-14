@@ -11,7 +11,8 @@
     "test:ttt-core": "nx test ttt-core",
     "build:ttt-core": "nx build ttt-core",
     "dev:ttt-ws": "nx serve ttt-ws",
-    "build:ttt-ws": "nx build ttt-ws"
+    "build:ttt-ws": "nx build ttt-ws",
+    "start:ttt-ws": "node dist/server/ttt/main.js"
   },
   "private": true,
   "dependencies": {
