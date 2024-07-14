@@ -9,6 +9,8 @@ const server = Server({
   origins: [Origins.LOCALHOST],
 });
 
+// deploy dev
+
 
 
 server.router.get('/', (ctx, next)=>{
