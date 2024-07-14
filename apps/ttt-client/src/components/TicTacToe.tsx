@@ -8,12 +8,12 @@ interface Props {
   playerID: string;
 }
 
+const BASE_URL = process.env.BASE_URL|| "https://nebulon-server-d20da13bc7f9.herokuapp.com/"
 
 const TicTacToe = Client({ 
     game: tttCore,
     board: GameBoard,
-    // multiplayer: SocketIO({ server: 'localhost:8000' }),
-    multiplayer: SocketIO({ server: 'https://nebulon-server-d20da13bc7f9.herokuapp.com/' }),
+    multiplayer: SocketIO({ server: BASE_URL }),
     debug: false,
  });
 
