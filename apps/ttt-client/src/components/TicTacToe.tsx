@@ -1,6 +1,8 @@
 import React, { useState} from 'react';
 import { Client } from 'boardgame.io/react';
-import {tttCore} from '@afg/ttt-core';
+import { ticTacToe as tttCore } from './core';
+// import tttCore from '@afg/ttt-core';
+
 import GameBoard from './GameBoard';
 import { SocketIO } from 'boardgame.io/multiplayer';
 
@@ -12,7 +14,7 @@ interface Props {
 const TicTacToe = Client({ 
     game: tttCore,
     board: GameBoard,
-    // multiplayer: SocketIO({ server: 'localhost:8000' }),
+    // multiplayer: SocketIO({ server: 'http://localhost:8000/' }),
     multiplayer: SocketIO({ server: 'https://nebulon-server-d20da13bc7f9.herokuapp.com/' }),
     debug: false,
  });

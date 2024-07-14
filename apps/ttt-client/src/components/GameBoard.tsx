@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import type { BoardProps } from 'boardgame.io/react';
-import { type GameState } from '@afg/ttt-core';
+import { type GameState } from './core';
 
 
 type MyGameProps = BoardProps<GameState> 

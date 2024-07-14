@@ -8,7 +8,7 @@ export default defineConfig({
   cacheDir: '../../node_modules/.vite/apps/ttt-client',
 
   server: {
-    port: 4200,
+    port: 3000,
     host: 'localhost',
   },
 

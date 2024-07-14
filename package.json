@@ -8,6 +8,7 @@
     "serve:ttt": "pnpx http-server dist/apps/ttt-client",
     "dev:ttt": "nx serve ttt-client",
     "test:ttt": "nx test ttt-client",
+    "lint:ttt": "nx lint ttt-client",
     "test:ttt-core": "nx test ttt-core",
     "build:ttt-core": "nx build ttt-core",
     "dev:ttt-ws": "nx serve ttt-ws",
