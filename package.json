@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "install:app": "pnpx install",
     "ttt:build": "nx build ttt-client",
-    "ttt:serve": "npx http-server dist/apps/ttt-client",
+    "ttt:serve": "pnpx http-server dist/apps/ttt-client",
     "ttt:dev": "nx serve ttt-client",
     "ttt:test": "nx test ttt-client",
     "test:ttt-core": "nx test ttt-core",
