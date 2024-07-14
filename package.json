@@ -2,7 +2,11 @@
   "name": "@afg/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "ttt:build": "nx build ttt-client",
+    "ttt:serve": "npx http-server dist/apps/ttt-client",
+    "ttt:dev" : "nx serve ttt-client"
+  },
   "private": true,
   "dependencies": {
     "react": "18.3.1",
