@@ -1,6 +1,6 @@
 import { useRouteError } from 'react-router-dom';
-import Button from '../components/base/Button';
-import { Outlet, Link } from 'react-router-dom';
+import Button from '@afg/ttt-fe/components/base/Button';
+import { Link } from 'react-router-dom';
 
 const Error = () => {
   const error = useRouteError() as { message?: string; statusText?: string };
