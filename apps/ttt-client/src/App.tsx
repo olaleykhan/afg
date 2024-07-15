@@ -1,15 +1,4 @@
-import { useState } from "react";
-import Game from "./components/TicTacToe";
-import { SelectUser } from "./components/lobby";
-function App() {
-  const [playerID, setPlayerID] = useState("");
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
 
-  return playerID ? (
-    <Game playerID={playerID} />
-  ) : (
-    <SelectUser setPlayerID={setPlayerID} />
-  );
-
-}
-
-export default App;
+export default () => <RouterProvider router={router} />;
