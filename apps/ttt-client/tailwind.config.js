@@ -46,6 +46,12 @@ module.exports = {
       fontFamily:{
         sans: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
+      fontSize:{
+        // h1:"24px",
+        // h2: "300px",
+
+
+      }
     },
   },
   plugins: [],
