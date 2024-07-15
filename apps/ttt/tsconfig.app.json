@@ -24,6 +24,6 @@
     "src/**/*.jsx",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/styling/robotoFonts.ts"
+    "../ttt-client/src/styling/robotoFonts.ts"
   ]
 }

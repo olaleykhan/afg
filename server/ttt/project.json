@@ -1,0 +1,56 @@
+{
+  "name": "ttt-ws",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "server/ttt/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/server/ttt",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "server/ttt/src/main.ts",
+        "tsConfig": "server/ttt/tsconfig.app.json",
+        "assets": ["server/ttt/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "ttt-ws:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "ttt-ws:build:development"
+        },
+        "production": {
+          "buildTarget": "ttt-ws:build:production"
+        }
+      }
+    }
+  }
+}

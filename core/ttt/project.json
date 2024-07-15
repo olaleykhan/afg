@@ -1,0 +1,19 @@
+{
+  "name": "ttt-core",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "core/ttt/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/core/ttt",
+        "main": "core/ttt/src/index.ts",
+        "tsConfig": "core/ttt/tsconfig.lib.json",
+        "assets": ["core/ttt/*.md"]
+      }
+    }
+  }
+}
