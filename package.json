@@ -12,7 +12,11 @@
     "build:ttt-core": "nx build ttt-core",
     "dev:ttt-ws": "nx serve ttt-ws",
     "build:ttt-ws": "nx build ttt-ws",
-    "start:ttt-ws": "node dist/server/ttt/main.js"
+    "start:ttt-ws": "node dist/server/ttt/main.js",
+    "dev": "nx serve ttt-fe",
+    "test": "nx test ttt-fe",
+    "build": "nx build ttt-fe",
+    "serve": "pnpx http-server dist/apps/ttt"
   },
   "private": true,
   "dependencies": {
