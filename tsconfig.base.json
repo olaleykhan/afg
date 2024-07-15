@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@afg/ttt-core": ["core/ttt/src/index.ts"]
+      "@afg/ttt-core": ["core/ttt/src/index.ts"],
+      "@afg/ttt-fe/*": ["apps/ttt/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
