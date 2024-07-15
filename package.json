@@ -4,19 +4,15 @@
   "license": "MIT",
   "scripts": {
     "install:app": "pnpx pnpm install",
-    "build:ttt": "nx build ttt-client",
-    "serve:ttt": "pnpx http-server dist/apps/ttt-client",
-    "dev:ttt": "nx serve ttt-client",
-    "test:ttt": "nx test ttt-client",
+    "build:ttt": "nx build ttt-fe",
+    "serve:ttt": "pnpx http-server dist/apps/ttt",
+    "dev:ttt": "nx serve ttt-fe",
+    "test:ttt": "nx test ttt-fe",
     "test:ttt-core": "nx test ttt-core",
     "build:ttt-core": "nx build ttt-core",
     "dev:ttt-ws": "nx serve ttt-ws",
     "build:ttt-ws": "nx build ttt-ws",
-    "start:ttt-ws": "node dist/server/ttt/main.js",
-    "dev": "nx serve ttt-fe",
-    "test": "nx test ttt-fe",
-    "build": "nx build ttt-fe",
-    "serve": "pnpx http-server dist/apps/ttt"
+    "start:ttt-ws": "node dist/server/ttt/main.js"
   },
   "private": true,
   "dependencies": {
