@@ -8,7 +8,7 @@ interface Props {
   playerID: string;
 }
 
-const BASE_URL = import.meta.env.VITE_SOME_BASE_URL || ""
+const BASE_URL = import.meta.env.VITE_BASE_URL || ""
 
 const TicTacToe = Client({ 
     game: tttCore,

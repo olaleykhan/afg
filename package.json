@@ -16,6 +16,7 @@
   },
   "private": true,
   "dependencies": {
+    "@fontsource/roboto": "^5.0.13",
     "axios": "^1.6.0",
     "boardgame.io": "^0.50.2",
     "koa": "~2.14.1",
