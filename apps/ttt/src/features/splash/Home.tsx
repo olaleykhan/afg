@@ -1,18 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from '@afg/ttt-fe/components/base/Button';
-
+import tttImg from '../../assets/tic-tac-toe.svg';
 const Home = () => {
   return (
-    <div>
-      {' '}
-      Splash HomeHome
-      <h2> SPlash Home</h2>
-      <Button Component={Link} className="" to="welcome">
-        {' '}
-        Next
-      </Button>
-    </div>
+    <Link to="welcome" className="flex h-full">
+      <div className="flex items-center ">
+        <img src={tttImg} alt="ttt-logo" />
+      </div>
+    </Link>
   );
 };
 
